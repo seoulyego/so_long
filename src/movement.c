@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:25:51 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/05 20:11:33 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/05 22:09:14 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	move_player(t_baram *baram, t_vector *offset, int direction)
 			baram->map.board[baram->player.y - vector_y]
 			[baram->player.x - vector_x] = EMPTY;
 		}
-		printf("movements : %d\n", ++baram->player.movement);
+		printf("\033[Kmovement : %d\n\033[A", ++baram->player.movement);
 	}
 	if (baram->map.comp.collect == 0 \
 			&& baram->map.board[baram->player.y][baram->player.x] == EXIT)

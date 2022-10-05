@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 10:47:24 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/05 17:35:55 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/05 23:35:15 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	main(int ac, char **av)
 {
 	t_baram	baram;
 
-	atexit(i_wanna_go_home);
 	if (ac != 2)
 		exit_with_error_message("Invalid input\n");
 	init_baram(&baram, av[1]);

@@ -1,4 +1,6 @@
 .DS_store
 .obj/
+*.a
+*.o
 *.tar
 so_long

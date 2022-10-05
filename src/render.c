@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:32:25 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/05 20:12:14 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/05 23:36:03 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,16 +77,31 @@ void	change_exit_img(t_baram *baram)
 	}
 }
 
+int	set_index_range(int *max_index, int min_std, int max_std, int range)
+{
+	int	min_index;
+
+	min_index = min_std - range;
+	if (min_index < 0)
+		min_index = 0;
+	*max_index = min_std + range;
+	if (*max_index > max_std)
+		*max_index = max_std;
+	return (min_index);
+}
+
 int	render_change(t_baram *baram)
 {
 	int	index_y;
 	int	index_x;
+	int	max_y;
+	int	max_x;
 
-	index_y = baram->player.y - 1;
-	while (index_y < baram->player.y + 2)
+	index_y = set_index_range(&max_y, baram->player.y, baram->map.height, 3);
+	while (index_y < max_y)
 	{
-		index_x = baram->player.x - 1;
-		while (index_x < baram->player.x + 2)
+		index_x = set_index_range(&max_x, baram->player.x, baram->map.width, 3);
+		while (index_x < max_x)
 		{
 			render_map(baram, index_y, index_x);
 			index_x++;
