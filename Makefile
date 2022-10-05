@@ -6,7 +6,7 @@
 #    By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/01 18:41:36 by yeongo            #+#    #+#              #
-#    Updated: 2022/10/04 19:10:33 by yeongo           ###   ########.fr        #
+#    Updated: 2022/10/05 21:09:40 by yeongo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,14 +26,14 @@ HEADER			:=		./include/
 SRC_DIR			:=		./src/
 OBJ_DIR			:=		./.obj/
 
-SRC_FILES		:=		$(addsuffix .c,				\
-						terminate					\
-						init						\
-						ft_mlx						\
-						parse						\
-						parse_util					\
-						movement					\
-						render						\
+SRC_FILES		:=		$(addsuffix .c,		\
+						terminate			\
+						init				\
+						ft_mlx				\
+						parse				\
+						parse_util			\
+						movement			\
+						render				\
 						so_long)
 OBJ_FILES		:=	$(SRC_FILES:.c=.o)
 SRC				:=	$(addprefix $(SRC_DIR), $(SRC_FILES))
