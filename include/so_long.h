@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 10:41:37 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/05 20:12:33 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/05 23:42:11 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,9 @@ void	check_map_file(t_baram *baram);
 int		get_map_board(t_baram *baram);
 int		check_valid_map(t_player *player, t_map *map);
 int		parse_map(t_baram *baram);
+
+void	change_exit_img(t_baram *baram);
+int		set_index_range(int *max_index, int min_std, int max_std, int range);
 
 void	render_map(t_baram *baram, int x, int y);
 void	render_player(t_baram *baram);
