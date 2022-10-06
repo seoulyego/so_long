@@ -6,14 +6,14 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:32:25 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/05 23:41:13 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/06 22:38:55 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mlx/mlx.h"
 #include "../include/so_long.h"
 
-void	render_map(t_baram *baram, int y, int x)
+static void	render_map(t_baram *baram, int y, int x)
 {
 	mlx_put_image_to_window
 		(baram->mlx, baram->window, baram->img.empty, x * 64, y * 64);
@@ -25,10 +25,10 @@ void	render_map(t_baram *baram, int y, int x)
 			(baram->mlx, baram->window, baram->img.collect, x * 64, y * 64);
 	else if (baram->map.board[y][x] == EXIT)
 		mlx_put_image_to_window
-			(baram->mlx, baram->window, *baram->img.exit, x * 64, y * 64);
+			(baram->mlx, baram->window, baram->img.exit, x * 64, y * 64);
 }
 
-void	render_player(t_baram *baram)
+static void	render_player(t_baram *baram)
 {
 	mlx_put_image_to_window
 		(baram->mlx, baram->window, baram->player.img, \
@@ -55,6 +55,19 @@ int	render_game(t_baram *baram)
 	return (0);
 }
 
+static int	set_index_range(int *max_index, int min_std, int max_std, int range)
+{
+	int	min_index;
+
+	min_index = min_std - range;
+	if (min_index < 0)
+		min_index = 0;
+	*max_index = min_std + range;
+	if (*max_index > max_std)
+		*max_index = max_std;
+	return (min_index);
+}
+
 int	render_change(t_baram *baram)
 {
 	int	index_y;
@@ -74,8 +87,5 @@ int	render_change(t_baram *baram)
 		index_y++;
 	}
 	render_player(baram);
-	if (baram->map.comp.collect == 0 \
-			&& *baram->img.exit == baram->img.exit_close)
-		change_exit_img(baram);
 	return (0);
 }

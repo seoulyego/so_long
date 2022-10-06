@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   render_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:32:25 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/05 19:55:52 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/06 23:12:31 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../mlx/mlx.h"
-#include "../include/so_long.h"
-#include <stdio.h>
+#include "../../mlx/mlx.h"
+#include "../include/so_long_bonus.h"
 
-void	render_map(t_baram *baram, int y, int x)
+static void	render_map(t_baram *baram, int y, int x)
 {
 	mlx_put_image_to_window
 		(baram->mlx, baram->window, baram->img.empty, x * 64, y * 64);
@@ -26,13 +25,13 @@ void	render_map(t_baram *baram, int y, int x)
 			(baram->mlx, baram->window, baram->img.collect, x * 64, y * 64);
 	else if (baram->map.board[y][x] == EXIT)
 		mlx_put_image_to_window
-			(baram->mlx, baram->window, *baram->img.exit, x * 64, y * 64);
+			(baram->mlx, baram->window, baram->img.exit, x * 64, y * 64);
 }
 
-void	render_player(t_baram *baram)
+static void	render_player(t_baram *baram, int direction)
 {
 	mlx_put_image_to_window
-		(baram->mlx, baram->window, baram->player.img, \
+		(baram->mlx, baram->window, baram->player.img[direction], \
 		baram->player.x * 64, baram->player.y * 64);
 }
 
@@ -48,7 +47,7 @@ int	render_game(t_baram *baram)
 		while (x < baram->map.width)
 		{
 			render_map(baram, y, x);
-			render_player(baram);
+			render_player(baram, baram->player.direction);
 			x++;
 		}
 		y++;
@@ -56,61 +55,37 @@ int	render_game(t_baram *baram)
 	return (0);
 }
 
-void	change_exit_img(t_baram *baram)
+static int	set_index_range(int *max_index, int min_std, int max_std, int range)
 {
-	int	index_y;
-	int	index_x;
+	int	min_index;
 
-	baram->img.exit = &baram->img.exit_open;
-	index_y = 0;
-	while (index_y < baram->map.height)
-	{
-		index_x = 0;
-		while (index_x < baram->map.width)
-		{
-			if (baram->map.board[index_y][index_x] == EXIT)
-				mlx_put_image_to_window
-					(baram->mlx, baram->window, *baram->img.exit, \
-					index_x * 64, index_y * 64);
-			index_x++;
-		}
-		index_y++;
-	}
+	min_index = min_std - range;
+	if (min_index < 0)
+		min_index = 0;
+	*max_index = min_std + range;
+	if (*max_index > max_std)
+		*max_index = max_std;
+	return (min_index);
 }
 
 int	render_change(t_baram *baram)
 {
 	int	index_y;
 	int	index_x;
+	int	max_y;
+	int	max_x;
 
-	index_y = baram->player.y - 1;
-	while (index_y < baram->player.y + 2)
+	index_y = set_index_range(&max_y, baram->player.y, baram->map.height, 3);
+	while (index_y < max_y)
 	{
-		index_x = baram->player.x - 1;
-		while (index_x < baram->player.x + 2)
+		index_x = set_index_range(&max_x, baram->player.x, baram->map.width, 3);
+		while (index_x < max_x)
 		{
 			render_map(baram, index_y, index_x);
 			index_x++;
 		}
 		index_y++;
 	}
-	render_player(baram);
-	/*
-	int	prev_y;
-	int	prev_x;
-
-	prev_y = baram->player.y - baram->player.preset
-	[baram->player.direction].vector_y;
-	prev_x = baram->player.x - baram->player.preset
-	[baram->player.direction].vector_x;
-	if (baram->map.board[prev_y][prev_x] != WALL)
-	{
-		render_map(baram, prev_y, prev_x);
-		render_player(baram);
-	}
-	*/
-	if (baram->map.comp.collect == 0 \
-			&& *baram->img.exit == baram->img.exit_close)
-		change_exit_img(baram);
+	render_player(baram, baram->player.direction);
 	return (0);
 }

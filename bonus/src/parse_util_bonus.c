@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_util.c                                       :+:      :+:    :+:   */
+/*   parse_util_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 21:49:19 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/05 16:37:52 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/06 21:24:40 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/include/libft.h"
-#include "../include/so_long.h"
+#include "../../libft/include/libft.h"
+#include "../include/so_long_bonus.h"
 #include <stdlib.h>
 
 int	check_map_name(char *map_path)

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movement.c                                         :+:      :+:    :+:   */
+/*   movement_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:25:51 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/06 22:31:55 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/06 23:15:38 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/so_long_bonus.h"
 #include <stdio.h>
 
 static void	modify_map_component(t_baram *baram, int vector_y, int vector_x)
@@ -34,6 +34,7 @@ static void	move_player(t_baram *baram, t_vector *offset, int direction)
 
 	vector_y = offset[direction].vector_y;
 	vector_x = offset[direction].vector_x;
+	baram->player.direction = direction;
 	if (baram->map.board[baram->player.y + vector_y]
 		[baram->player.x + vector_x] != WALL)
 	{

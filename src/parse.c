@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:30:29 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/05 13:43:48 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/06 22:36:42 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-void	check_map_file(t_baram *baram)
+static void	check_map_file(t_baram *baram)
 {
 	int	fd;
 	int	tmp_width;
@@ -40,7 +40,7 @@ void	check_map_file(t_baram *baram)
 		exit_with_error_message("Invalid map size\n");
 }
 
-int	get_map_board(t_baram *baram)
+static int	get_map_board(t_baram *baram)
 {
 	int	fd;
 	int	index;
@@ -64,7 +64,7 @@ int	get_map_board(t_baram *baram)
 	return (1);
 }
 
-int	check_valid_map(t_player *player, t_map *map)
+static int	check_valid_map(t_player *player, t_map *map)
 {
 	int	map_y;
 	int	map_x;

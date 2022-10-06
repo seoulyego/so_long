@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:31:50 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/05 20:12:50 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/06 22:32:57 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../libft/include/libft.h"
 #include "../include/so_long.h"
 
-void	set_move_preset(t_vector preset[5])
+static void	set_move_preset(t_vector preset[5])
 {
 	preset[NONE].vector_y = 0;
 	preset[NONE].vector_x = 0;
@@ -35,7 +35,7 @@ void	init_baram(t_baram *baram, char *map_path)
 	set_move_preset(baram->player.preset);
 }
 
-void	init_player_images(t_baram *baram)
+static void	init_player_images(t_baram *baram)
 {
 	int	width;
 	int	height;
@@ -49,9 +49,7 @@ void	init_img_ptr(t_baram *baram)
 	ft_xpm_to_image(baram->mlx, &baram->img.empty, "./img/0.xpm");
 	ft_xpm_to_image(baram->mlx, &baram->img.wall, "./img/1.xpm");
 	ft_xpm_to_image(baram->mlx, &baram->img.collect, "./img/C.xpm");
-	ft_xpm_to_image(baram->mlx, &baram->img.exit_close, "./img/E_1.xpm");
-	ft_xpm_to_image(baram->mlx, &baram->img.exit_open, "./img/E_2.xpm");
-	baram->img.exit = &baram->img.exit_close;
+	ft_xpm_to_image(baram->mlx, &baram->img.exit, "./img/E.xpm");
 	init_player_images(baram);
 }
 

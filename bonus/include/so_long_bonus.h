@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 10:41:37 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/05 19:57:45 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/06 23:13:18 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,7 @@ struct s_img
 	void	*empty;
 	void	*wall;
 	void	*collect;
-	void	*exit_close;
-	void	*exit_open;
-	void	**exit;
+	void	*exit;
 };
 
 struct s_component
@@ -62,6 +60,11 @@ struct s_vector
 	int	vector_x;
 };
 
+struct s_player_img
+{
+	void	**ptr;
+};
+
 struct s_player
 {
 	int			x;
@@ -69,7 +72,7 @@ struct s_player
 	t_vector	preset[5];
 	int			direction;
 	int			movement;
-	void		*img;
+	void		*img[5];
 };
 
 struct s_baram
@@ -112,37 +115,34 @@ enum e_direction
 	RIGHT = 4
 };
 
+/*           terminate_bonus.c         */
 void	exit_with_error_message(char *str);
 void	exit_with_perror(char *str);
 int		exit_success(t_baram *baram);
 
-//void	move_player(t_baram *baram, t_vector *offset, int direction);
-//void	move_player(t_baram *baram, int dir_y, int dir_x, int direction);
+/*           movement_bonus.c          */
 int		press_key(int key_code, t_baram *baram);
 
-void	set_move_preset(t_vector preset[4]);
+/*           init_bonus.c              */
 void	init_baram(t_baram *baram, char *map_path);
-void	init_player_images(t_baram *baram);
 void	init_img_ptr(t_baram *baram);
 void	init_window(t_baram *baram);
 
+/*           ft_mlx_bonus.c            */
 void	ft_mlx_init(void **mlx_ptr);
 void	ft_new_window(void *mlx_ptr, void **window, int size_x, int size_y);
 void	ft_xpm_to_image(void *mlx_ptr, void **img_ptr, char *img_path);
 
+/*           parse_util_bonus.c        */
 int		check_map_name(char *map_path);
 int		get_width(int fd);
 void	count_component(int map_y, int map_x, t_player *player, t_map *map);
 
-void	check_map_file(t_baram *baram);
-int		get_map_board(t_baram *baram);
-int		check_valid_map(t_player *player, t_map *map);
+/*           parse_bonus.c             */
 int		parse_map(t_baram *baram);
 
-void	render_map(t_baram *baram, int x, int y);
-void	render_player(t_baram *baram);
+/*           render_bonus.c            */
 int		render_game(t_baram *baram);
-void	change_exit_img(t_baram *baram);
 int		render_change(t_baram *baram);
 
 #endif

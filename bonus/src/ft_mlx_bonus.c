@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mlx.c                                           :+:      :+:    :+:   */
+/*   ft_mlx_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:38:37 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/05 16:16:28 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/06 21:24:00 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../mlx/mlx.h"
-#include "../include/so_long.h"
+#include "../../mlx/mlx.h"
+#include "../include/so_long_bonus.h"
 #include <stddef.h>
 
 void	ft_mlx_init(void **mlx_ptr)
