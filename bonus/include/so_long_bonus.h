@@ -6,12 +6,12 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 10:41:37 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/06 23:13:18 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/17 10:28:12 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # define FILE_EXT ".ber"
 # define P_NAME "so_long"
@@ -60,11 +60,6 @@ struct s_vector
 	int	vector_x;
 };
 
-struct s_player_img
-{
-	void	**ptr;
-};
-
 struct s_player
 {
 	int			x;
@@ -73,6 +68,7 @@ struct s_player
 	int			direction;
 	int			movement;
 	void		*img[5];
+	void		*sprite[5];
 };
 
 struct s_baram
@@ -110,39 +106,48 @@ enum e_direction
 {
 	NONE = 0,
 	UP = 1,
-	LEFT = 2,
-	DOWN = 3,
+	DOWN = 2,
+	LEFT = 3,
 	RIGHT = 4
 };
 
-/*           terminate_bonus.c         */
+/*        terminate_bonus.c           */
 void	exit_with_error_message(char *str);
 void	exit_with_perror(char *str);
 int		exit_success(t_baram *baram);
 
-/*           movement_bonus.c          */
+/*        movement_bonus.c            */
 int		press_key(int key_code, t_baram *baram);
 
-/*           init_bonus.c              */
+/*        init_player_bonus.c         */
+void	init_player_images(t_baram *baram);
+void	init_sprite_images(t_baram *baram);
+
+/*        init_bonus.c                */
 void	init_baram(t_baram *baram, char *map_path);
 void	init_img_ptr(t_baram *baram);
 void	init_window(t_baram *baram);
 
-/*           ft_mlx_bonus.c            */
+/*        ft_mlx_bonus.c              */
 void	ft_mlx_init(void **mlx_ptr);
 void	ft_new_window(void *mlx_ptr, void **window, int size_x, int size_y);
 void	ft_xpm_to_image(void *mlx_ptr, void **img_ptr, char *img_path);
 
-/*           parse_util_bonus.c        */
+/*        parse_utils_bonus.c         */
 int		check_map_name(char *map_path);
 int		get_width(int fd);
 void	count_component(int map_y, int map_x, t_player *player, t_map *map);
 
-/*           parse_bonus.c             */
+/*        parse_bonus.c               */
 int		parse_map(t_baram *baram);
 
-/*           render_bonus.c            */
-int		render_game(t_baram *baram);
-int		render_change(t_baram *baram);
+/*        render_component_bonus.c    */
+void	render_map(t_baram *baram, int y, int x);
+void	render_sprite(t_baram *baram, int direction);
+void	render_player(t_baram *baram, int direction);
+
+/*        render_bonus.c              */
+int		render_game(t_baram *baram, void (*f)(t_baram *, int));
+int		render_movement(t_baram *baram);
 
 #endif

@@ -6,79 +6,44 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:32:25 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/06 22:38:55 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/17 10:49:12 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mlx/mlx.h"
 #include "../include/so_long.h"
 
-static void	render_map(t_baram *baram, int y, int x)
+static int	set_index(int *max_idx, int min_std, int max_std, int movement)
 {
-	mlx_put_image_to_window
-		(baram->mlx, baram->window, baram->img.empty, x * 64, y * 64);
-	if (baram->map.board[y][x] == WALL)
-		mlx_put_image_to_window
-			(baram->mlx, baram->window, baram->img.wall, x * 64, y * 64);
-	else if (baram->map.board[y][x] == COLLECT)
-		mlx_put_image_to_window
-			(baram->mlx, baram->window, baram->img.collect, x * 64, y * 64);
-	else if (baram->map.board[y][x] == EXIT)
-		mlx_put_image_to_window
-			(baram->mlx, baram->window, baram->img.exit, x * 64, y * 64);
-}
+	int	min_idx;
 
-static void	render_player(t_baram *baram)
-{
-	mlx_put_image_to_window
-		(baram->mlx, baram->window, baram->player.img, \
-		baram->player.x * 64, baram->player.y * 64);
+	if (movement == 0)
+	{
+		*max_idx = max_std;
+		return (0);
+	}
+	min_idx = min_std - 3;
+	if (min_idx < 0)
+		min_idx = 0;
+	*max_idx = min_std + 3;
+	if (*max_idx > max_std)
+		*max_idx = max_std;
+	return (min_idx);
 }
 
 int	render_game(t_baram *baram)
-{
-	int	y;
-	int	x;
-
-	y = 0;
-	while (y < baram->map.height)
-	{
-		x = 0;
-		while (x < baram->map.width)
-		{
-			render_map(baram, y, x);
-			render_player(baram);
-			x++;
-		}
-		y++;
-	}
-	return (0);
-}
-
-static int	set_index_range(int *max_index, int min_std, int max_std, int range)
-{
-	int	min_index;
-
-	min_index = min_std - range;
-	if (min_index < 0)
-		min_index = 0;
-	*max_index = min_std + range;
-	if (*max_index > max_std)
-		*max_index = max_std;
-	return (min_index);
-}
-
-int	render_change(t_baram *baram)
 {
 	int	index_y;
 	int	index_x;
 	int	max_y;
 	int	max_x;
 
-	index_y = set_index_range(&max_y, baram->player.y, baram->map.height, 3);
+	index_y = set_index
+		(&max_y, baram->player.y, baram->map.height, baram->player.movement);
 	while (index_y < max_y)
 	{
-		index_x = set_index_range(&max_x, baram->player.x, baram->map.width, 3);
+		index_x = set_index
+			(&max_x, baram->player.x, baram->map.width, baram->player.movement);
 		while (index_x < max_x)
 		{
 			render_map(baram, index_y, index_x);

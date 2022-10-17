@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:25:51 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/06 23:15:38 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/12 09:25:36 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ int	press_key(int key_code, t_baram *baram)
 		exit_success(baram);
 	else if (key_code == PRESS_W || key_code == PRESS_UP)
 		move_player(baram, baram->player.preset, UP);
-	else if (key_code == PRESS_A || key_code == PRESS_LEFT)
-		move_player(baram, baram->player.preset, LEFT);
 	else if (key_code == PRESS_S || key_code == PRESS_DOWN)
 		move_player(baram, baram->player.preset, DOWN);
+	else if (key_code == PRESS_A || key_code == PRESS_LEFT)
+		move_player(baram, baram->player.preset, LEFT);
 	else if (key_code == PRESS_D || key_code == PRESS_RIGHT)
 		move_player(baram, baram->player.preset, RIGHT);
 	return (0);

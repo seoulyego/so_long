@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 10:47:24 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/06 21:25:08 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/17 10:22:09 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ int	main(int ac, char **av)
 	ft_mlx_init(&baram.mlx);
 	init_img_ptr(&baram);
 	init_window(&baram);
-	render_game(&baram);
+	render_game(&baram, render_player);
 	mlx_hook(baram.window, X_EVENT_KEY_PRESS, 0, press_key, &baram);
 	mlx_hook(baram.window, X_EVENT_WIN_EXIT, 0, exit_success, &baram);
-	mlx_loop_hook(baram.mlx, render_change, &baram);
+	mlx_loop_hook(baram.mlx, render_movement, &baram);
 	mlx_loop(baram.mlx);
 	exit (0);
 }

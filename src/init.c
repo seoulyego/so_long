@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:31:50 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/06 22:32:57 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/17 10:44:37 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static void	set_move_preset(t_vector preset[5])
 	preset[NONE].vector_x = 0;
 	preset[UP].vector_y = -1;
 	preset[UP].vector_x = 0;
-	preset[LEFT].vector_y = 0;
-	preset[LEFT].vector_x = -1;
 	preset[DOWN].vector_y = 1;
 	preset[DOWN].vector_x = 0;
+	preset[LEFT].vector_y = 0;
+	preset[LEFT].vector_x = -1;
 	preset[RIGHT].vector_y = 0;
 	preset[RIGHT].vector_x = 1;
 }
@@ -37,11 +37,7 @@ void	init_baram(t_baram *baram, char *map_path)
 
 static void	init_player_images(t_baram *baram)
 {
-	int	width;
-	int	height;
-
-	baram->player.img = mlx_xpm_file_to_image
-		(baram->mlx, "./img/P_South.xpm", &width, &height);
+	ft_xpm_to_image(baram->mlx, &baram->player.img, "./img/P_South.xpm");
 }
 
 void	init_img_ptr(t_baram *baram)

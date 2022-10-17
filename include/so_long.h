@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 10:41:37 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/06 22:47:33 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/17 10:35:10 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,39 +104,42 @@ enum e_direction
 {
 	NONE = 0,
 	UP = 1,
-	LEFT = 2,
-	DOWN = 3,
+	DOWN = 2,
+	LEFT = 3,
 	RIGHT = 4
 };
 
-/*            terminate.c            */
+/*            terminate.c             */
 void	exit_with_error_message(char *str);
 void	exit_with_perror(char *str);
 int		exit_success(t_baram *baram);
 
-/*            movement.c             */
+/*            movement.c              */
 int		press_key(int key_code, t_baram *baram);
 
-/*            init.c                 */
+/*            init.c                  */
 void	init_baram(t_baram *baram, char *map_path);
 void	init_img_ptr(t_baram *baram);
 void	init_window(t_baram *baram);
 
-/*            ft_mlx.c               */
+/*            ft_mlx.c                */
 void	ft_mlx_init(void **mlx_ptr);
 void	ft_new_window(void *mlx_ptr, void **window, int size_x, int size_y);
 void	ft_xpm_to_image(void *mlx_ptr, void **img_ptr, char *img_path);
 
-/*            parse_util.c           */
+/*            parse_util.c            */
 int		check_map_name(char *map_path);
 int		get_width(int fd);
 void	count_component(int map_y, int map_x, t_player *player, t_map *map);
 
-/*            parse.c                */
+/*            parse.c                 */
 int		parse_map(t_baram *baram);
 
-/*            render.c               */
+/*            render_component.c      */
+void	render_map(t_baram *baram, int y, int x);
+void	render_player(t_baram *baram);
+
+/*            render.c                */
 int		render_game(t_baram *baram);
-int		render_change(t_baram *baram);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/01 18:41:36 by yeongo            #+#    #+#              #
-#    Updated: 2022/10/06 22:03:29 by yeongo           ###   ########.fr        #
+#    Updated: 2022/10/17 10:39:05 by yeongo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,27 +30,30 @@ HEADER_BONUS	:=	./bonus/include/
 SRC_B_DIR		:=	./bonus/src/
 OBJ_B_DIR		:=	./bonus/.obj/
 
-SRC_FILES		:=	$(addsuffix .c,		\
-					terminate			\
-					init				\
-					ft_mlx				\
-					parse				\
-					parse_util			\
-					movement			\
-					render				\
+SRC_FILES		:=	$(addsuffix .c,			\
+					terminate				\
+					init					\
+					ft_mlx					\
+					parse					\
+					parse_util				\
+					movement				\
+					render					\
+					render_component		\
 					so_long)
 OBJ_FILES		:=	$(SRC_FILES:.c=.o)
 SRC				:=	$(addprefix $(SRC_DIR), $(SRC_FILES))
 OBJ				:=	$(addprefix $(OBJ_DIR), $(OBJ_FILES))
 
-SRC_B_FILES		:=	$(addsuffix .c,		\
-					terminate_bonus		\
-					init_bonus			\
-					ft_mlx_bonus		\
-					parse_bonus			\
-					parse_util_bonus	\
-					movement_bonus		\
-					render_bonus		\
+SRC_B_FILES		:=	$(addsuffix .c,			\
+					terminate_bonus			\
+					init_player_bonus		\
+					init_bonus				\
+					ft_mlx_bonus			\
+					parse_bonus				\
+					parse_utils_bonus		\
+					movement_bonus			\
+					render_bonus			\
+					render_component_bonus	\
 					so_long_bonus)
 OBJ_B_FILES		:=	$(SRC_B_FILES:.c=.o)
 SRC_BONUS		:=	$(addprefix $(SRC_B_DIR), $(SRC_B_FILES))
