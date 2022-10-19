@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 19:29:09 by yeongo            #+#    #+#             */
-/*   Updated: 2022/07/07 15:50:09 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/19 10:37:30 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static unsigned int	ft_abs(int nbr)
 
 	tmp_n = 0;
 	if (nbr < 0)
-		return ((unsigned int)(tmp_n - nbr));
+		return (tmp_n - (unsigned int)nbr);
 	return ((unsigned int)nbr);
 }
 

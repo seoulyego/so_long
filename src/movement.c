@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:25:51 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/19 10:02:45 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/19 11:20:06 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	move_player(t_baram *baram, t_vector *offset, int direction)
 		baram->player.y += vector_y;
 		baram->player.x += vector_x;
 		modify_map_component(baram, vector_y, vector_x);
-		printf("\033[Kmovement : %d\n\033[A", ++baram->player.movement);
+		baram->player.movement++;
 	}
 	if (baram->map.component.collectible == 0 \
 			&& baram->map.board[baram->player.y][baram->player.x] == EXIT)
@@ -60,4 +60,9 @@ int	press_key(int key_code, t_baram *baram)
 	else if (key_code == PRESS_D || key_code == PRESS_RIGHT)
 		move_player(baram, baram->player.preset, RIGHT);
 	return (0);
+}
+
+void	display_movement_count(t_baram *baram)
+{
+	printf("\033[Kmovement : %d\n\033[A", baram->player.movement);
 }

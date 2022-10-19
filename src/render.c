@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:32:25 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/17 10:49:12 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/19 11:20:47 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ int	render_game(t_baram *baram)
 		index_y++;
 	}
 	render_player(baram);
+	display_movement_count(baram);
 	return (0);
 }

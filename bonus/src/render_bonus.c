@@ -6,12 +6,13 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:32:25 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/19 09:52:51 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/19 11:19:15 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../mlx/mlx.h"
 #include "../include/so_long_bonus.h"
+#include <stdio.h>
 
 static int	set_index(int *max_idx, int min_std, int max_std, int movement)
 {
@@ -38,6 +39,7 @@ int	render_game(t_baram *baram, void (*render_character)(t_baram *, int))
 	int	max_y;
 	int	max_x;
 
+	render_map(baram, 0, 0);
 	index_y = set_index
 		(&max_y, baram->player.y, baram->map.height, baram->player.movement);
 	while (index_y < max_y)
@@ -52,6 +54,7 @@ int	render_game(t_baram *baram, void (*render_character)(t_baram *, int))
 		index_y++;
 	}
 	render_character(baram, baram->player.direction);
+	display_movement_count(baram);
 	return (0);
 }
 

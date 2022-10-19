@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 10:41:37 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/19 10:02:33 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/19 11:19:08 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,7 @@ int		exit_success(t_baram *baram);
 
 /*        movement_bonus.c            */
 int		press_key(int key_code, t_baram *baram);
+void	display_movement_count(t_baram *baram);
 
 /*        init_player_bonus.c         */
 void	init_player_images(t_baram *baram);
@@ -132,6 +133,7 @@ void	init_window(t_baram *baram);
 void	ft_mlx_init(void **mlx_ptr);
 void	ft_new_window(void *mlx_ptr, void **window, int size_x, int size_y);
 void	ft_xpm_to_image(void *mlx_ptr, void **img_ptr, char *img_path);
+void	ft_string_put(t_baram *baram);
 
 /*        parse_utils_bonus.c         */
 int		check_map_name(char *map_path);

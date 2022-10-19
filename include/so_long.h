@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 10:41:37 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/19 10:02:44 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/19 11:20:25 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ int		exit_success(t_baram *baram);
 
 /*            movement.c              */
 int		press_key(int key_code, t_baram *baram);
+void	display_movement_count(t_baram *baram);
 
 /*            init.c                  */
 void	init_baram(t_baram *baram, char *map_path);
