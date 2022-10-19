@@ -6,7 +6,7 @@
 #    By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/01 18:41:36 by yeongo            #+#    #+#              #
-#    Updated: 2022/10/17 10:39:05 by yeongo           ###   ########.fr        #
+#    Updated: 2022/10/19 10:14:35 by yeongo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,8 +107,7 @@ clean	:
 
 .PHONY	:	fclean
 fclean	:	clean
-	@make -s -C $(LIBFT_DIR) fclean
-	@make -s -C $(LIBMLX_DIR) clean
+	@$(RM) $(LIBFT)
 	@$(RM) $(NAME)
 	@echo "\033[91m      FCLEAN DONE      \033[0m"
 
