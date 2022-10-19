@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 21:49:19 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/06 21:24:40 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/19 10:02:40 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,18 @@ void	count_component(int map_y, int map_x, t_player *player, t_map *map)
 		return ;
 	else if (map->board[map_y][map_x] == PLAYER)
 	{
-		if (map->comp.player++ == 0)
+		if (map->component.player == 0)
 		{
 			player->x = map_x;
 			player->y = map_y;
 		}
+		map->component.player++;
 		map->board[map_y][map_x] = EMPTY;
 	}
 	else if (map->board[map_y][map_x] == COLLECT)
-		map->comp.collect++;
+		map->component.collectible++;
 	else if (map->board[map_y][map_x] == EXIT)
-		map->comp.exit++;
+		map->component.exit++;
 	else
 		exit_with_error_message("Invalid map component\n");
 }

@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:25:51 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/12 09:25:36 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/19 10:02:37 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 static void	modify_map_component(t_baram *baram, int vector_y, int vector_x)
 {
 	if (baram->map.board[baram->player.y][baram->player.x] == COLLECT)
-		baram->map.comp.collect--;
+		baram->map.component.collectible--;
 	if (baram->map.board[baram->player.y - vector_y]
 		[baram->player.x - vector_x] != EXIT \
-			&& baram->map.board[baram->player.y][baram->player.x] != EXIT)
+		&& baram->map.board[baram->player.y][baram->player.x] != EXIT)
 	{
 		baram->map.board[baram->player.y][baram->player.x] = EMPTY;
 		baram->map.board[baram->player.y - vector_y]
@@ -43,8 +43,8 @@ static void	move_player(t_baram *baram, t_vector *offset, int direction)
 		modify_map_component(baram, vector_y, vector_x);
 		printf("\033[Kmovement : %d\n\033[A", ++baram->player.movement);
 	}
-	if (baram->map.comp.collect == 0 \
-			&& baram->map.board[baram->player.y][baram->player.x] == EXIT)
+	if (baram->map.component.collectible == 0 \
+		&& baram->map.board[baram->player.y][baram->player.x] == EXIT)
 		exit_success(baram);
 }
 

@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:31:50 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/17 10:47:43 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/19 09:47:26 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	init_img_ptr(t_baram *baram)
 	ft_xpm_to_image
 		(baram->mlx, &baram->img.exit, "./img/E.xpm");
 	init_player_images(baram);
+	init_sprite_images(baram);
 }
-//	init_sprite_images(baram);
 
 void	init_window(t_baram *baram)
 {

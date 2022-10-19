@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 10:41:37 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/17 10:35:10 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/19 10:02:44 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ struct s_img
 
 struct s_component
 {
-	int	collect;
+	int	collectible;
 	int	exit;
 	int	player;
 };
@@ -51,7 +51,7 @@ struct s_map
 	char		**board;
 	int			width;
 	int			height;
-	t_component	comp;
+	t_component	component;
 };
 
 struct s_vector
