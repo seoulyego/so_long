@@ -6,7 +6,7 @@
 #    By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/01 18:41:36 by yeongo            #+#    #+#              #
-#    Updated: 2022/10/19 10:14:35 by yeongo           ###   ########.fr        #
+#    Updated: 2022/10/20 10:14:52 by yeongo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,11 +49,11 @@ SRC_B_FILES		:=	$(addsuffix .c,			\
 					init_player_bonus		\
 					init_bonus				\
 					ft_mlx_bonus			\
-					parse_bonus				\
 					parse_utils_bonus		\
+					parse_bonus				\
 					movement_bonus			\
-					render_bonus			\
 					render_component_bonus	\
+					render_bonus			\
 					so_long_bonus)
 OBJ_B_FILES		:=	$(SRC_B_FILES:.c=.o)
 SRC_BONUS		:=	$(addprefix $(SRC_B_DIR), $(SRC_B_FILES))
