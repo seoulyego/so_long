@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:38:37 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/19 11:14:42 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/20 09:42:29 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	ft_string_put(t_baram *baram)
 	char	*string;
 
 	string = ft_itoa(baram->player.movement);
-	mlx_string_put(baram->mlx, baram->window, baram->player.x * 64 + 44, baram->player.y * 64 + 64, 0x00ffffff, string);
+	mlx_string_put(baram->mlx, baram->window, baram->player.x * 64 + 48, \
+			baram->player.y * 64 + 64, 0x00ffffff, string);
 	free(string);
 }
