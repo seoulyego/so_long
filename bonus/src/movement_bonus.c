@@ -6,12 +6,11 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:25:51 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/19 11:18:47 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/20 09:45:33 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long_bonus.h"
-#include "../../mlx/mlx.h"
 
 static void	modify_map_component(t_baram *baram, int vector_y, int vector_x)
 {
