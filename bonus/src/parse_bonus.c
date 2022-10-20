@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:30:29 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/19 10:02:38 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/20 10:19:55 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ static int	check_valid_map(t_player *player, t_map *map)
 		map_y++;
 	}
 	if (map->component.player > 1)
-		exit_with_error_message("Too many player\n");
+		exit_with_error_message("Too many players\n");
 	return (map->component.player && map->component.collectible \
 			&& map->component.exit);
 }
