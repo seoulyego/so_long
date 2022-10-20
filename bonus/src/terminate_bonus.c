@@ -6,12 +6,12 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:29:57 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/20 09:50:10 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/20 10:12:12 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft/include/libft.h"
 #include "../../mlx/mlx.h"
+#include "../../libft/include/libft.h"
 #include "../include/so_long_bonus.h"
 #include <unistd.h>
 #include <stdio.h>

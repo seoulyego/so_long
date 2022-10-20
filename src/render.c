@@ -6,11 +6,10 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:32:25 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/19 11:20:47 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/20 10:10:57 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../mlx/mlx.h"
 #include "../include/so_long.h"
 
 static int	set_index(int *max_idx, int min_std, int max_std, int movement)

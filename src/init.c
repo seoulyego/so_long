@@ -6,11 +6,10 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:31:50 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/17 10:44:37 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/10/20 10:10:25 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../mlx/mlx.h"
 #include "../libft/include/libft.h"
 #include "../include/so_long.h"
 
