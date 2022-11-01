@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:32:25 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/20 10:10:57 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/11/01 11:02:32 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ static int	set_index(int *max_idx, int min_std, int max_std, int movement)
 		*max_idx = max_std;
 		return (0);
 	}
-	min_idx = min_std - 3;
+	min_idx = min_std - RENDER_MARGINE;
 	if (min_idx < 0)
 		min_idx = 0;
-	*max_idx = min_std + 3;
+	*max_idx = min_std + RENDER_MARGINE;
 	if (*max_idx > max_std)
 		*max_idx = max_std;
 	return (min_idx);

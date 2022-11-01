@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:31:50 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/20 10:12:52 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/11/01 10:47:22 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,20 @@ void	init_baram(t_baram *baram, char *map_path)
 	set_move_preset(baram->player.preset);
 }
 
+static void	init_player_images(t_baram *baram)
+{
+	ft_xpm_to_image
+		(baram->mlx, &baram->player.img[NONE], "./img/P_South.xpm");
+	ft_xpm_to_image
+		(baram->mlx, &baram->player.img[UP], "./img/P_North.xpm");
+	ft_xpm_to_image
+		(baram->mlx, &baram->player.img[DOWN], "./img/P_South.xpm");
+	ft_xpm_to_image
+		(baram->mlx, &baram->player.img[LEFT], "./img/P_West.xpm");
+	ft_xpm_to_image
+		(baram->mlx, &baram->player.img[RIGHT], "./img/P_East.xpm");
+}
+
 void	init_img_ptr(t_baram *baram)
 {
 	ft_xpm_to_image
@@ -45,7 +59,6 @@ void	init_img_ptr(t_baram *baram)
 	ft_xpm_to_image
 		(baram->mlx, &baram->img.exit, "./img/E.xpm");
 	init_player_images(baram);
-	init_sprite_images(baram);
 }
 
 void	init_window(t_baram *baram)

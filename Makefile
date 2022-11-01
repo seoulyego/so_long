@@ -6,7 +6,7 @@
 #    By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/01 18:41:36 by yeongo            #+#    #+#              #
-#    Updated: 2022/10/20 10:16:53 by yeongo           ###   ########.fr        #
+#    Updated: 2022/11/01 10:57:07 by yeongo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,6 @@ OBJ				:=	$(addprefix $(OBJ_DIR), $(OBJ_FILES))
 
 SRC_B_FILES		:=	$(addsuffix .c,			\
 					terminate_bonus			\
-					init_player_bonus		\
 					init_bonus				\
 					ft_mlx_bonus			\
 					parse_utils_bonus		\

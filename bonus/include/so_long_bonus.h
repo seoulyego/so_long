@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 10:41:37 by yeongo            #+#    #+#             */
-/*   Updated: 2022/11/01 10:28:32 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/11/01 10:48:45 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ struct s_player
 	int			sprite_flag;
 	t_vector	preset[5];
 	void		*img[5];
-	void		*sprite[5];
 	int			movement;
 };
 
@@ -123,10 +122,6 @@ int		exit_success(t_baram *baram);
 /*        movement_bonus.c            */
 int		press_key(int key_code, t_baram *baram);
 void	display_movement_count(t_baram *baram);
-
-/*        init_player_bonus.c         */
-void	init_player_images(t_baram *baram);
-void	init_sprite_images(t_baram *baram);
 
 /*        init_bonus.c                */
 void	init_baram(t_baram *baram, char *map_path);

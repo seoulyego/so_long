@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 10:41:37 by yeongo            #+#    #+#             */
-/*   Updated: 2022/11/01 10:29:46 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/11/01 11:02:20 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 
 # define X_EVENT_KEY_PRESS 2
 # define X_EVENT_WIN_EXIT 17
+
+# define RENDER_MARGINE 3
 
 typedef struct s_exit		t_exit;
 typedef struct s_img		t_img;
