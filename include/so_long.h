@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 10:41:37 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/19 11:20:25 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/11/01 10:29:46 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ struct s_player
 	int			x;
 	int			y;
 	t_vector	preset[5];
-	int			movement;
 	void		*img;
+	int			movement;
 };
 
 struct s_baram

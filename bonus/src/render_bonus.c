@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:32:25 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/20 09:46:05 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/11/01 10:05:34 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ static int	set_index(int *max_idx, int min_std, int max_std, int movement)
 		*max_idx = max_std;
 		return (0);
 	}
-	min_idx = min_std - 3;
+	min_idx = min_std - RENDER_MARGINE;
 	if (min_idx < 0)
 		min_idx = 0;
-	*max_idx = min_std + 3;
+	*max_idx = min_std + RENDER_MARGINE;
 	if (*max_idx > max_std)
 		*max_idx = max_std;
 	return (min_idx);
@@ -37,7 +37,6 @@ int	render_game(t_baram *baram, void (*render_character)(t_baram *, int))
 	int	max_y;
 	int	max_x;
 
-	render_map(baram, 0, 0);
 	index_y = set_index
 		(&max_y, baram->player.y, baram->map.height, baram->player.movement);
 	while (index_y < max_y)
@@ -58,7 +57,18 @@ int	render_game(t_baram *baram, void (*render_character)(t_baram *, int))
 
 int	render_movement(t_baram *baram)
 {
-	render_game(baram, render_sprite);
-	render_game(baram, render_player);
+	static int	frame;
+
+	if (++frame > 1)
+		frame = 0;
+	if (baram->player.move_flag == 1 && frame == 1)
+		baram->player.move_flag = 0;
+	if (baram->player.move_flag == 0)
+		render_game(baram, render_player);
+	else
+	{
+		render_game(baram, render_sprite);
+		baram->player.move_flag = 0;
+	}
 	return (0);
 }

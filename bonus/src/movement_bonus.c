@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:25:51 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/20 09:45:33 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/11/01 10:17:52 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,16 @@ static void	move_player(t_baram *baram, t_vector *offset, int direction)
 	vector_y = offset[direction].vector_y;
 	vector_x = offset[direction].vector_x;
 	baram->player.direction = direction;
+	baram->player.sprite_flag = 0;
 	if (baram->map.board[baram->player.y + vector_y]
 		[baram->player.x + vector_x] != WALL)
 	{
+		baram->player.move_flag = 1;
+		baram->player.sprite_flag = 1;
 		baram->player.y += vector_y;
 		baram->player.x += vector_x;
-		modify_map_component(baram, vector_y, vector_x);
 		baram->player.movement++;
+		modify_map_component(baram, vector_y, vector_x);
 	}
 	if (baram->map.component.collectible == 0 \
 		&& baram->map.board[baram->player.y][baram->player.x] == EXIT)

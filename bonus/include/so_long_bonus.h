@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 10:41:37 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/19 11:19:08 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/11/01 10:28:32 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 
 # define X_EVENT_KEY_PRESS 2
 # define X_EVENT_WIN_EXIT 17
+
+# define RENDER_MARGINE 4
 
 typedef struct s_exit		t_exit;
 typedef struct s_img		t_img;
@@ -64,11 +66,13 @@ struct s_player
 {
 	int			x;
 	int			y;
-	t_vector	preset[5];
 	int			direction;
-	int			movement;
+	int			move_flag;
+	int			sprite_flag;
+	t_vector	preset[5];
 	void		*img[5];
 	void		*sprite[5];
+	int			movement;
 };
 
 struct s_baram
