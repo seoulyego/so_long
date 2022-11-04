@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:32:25 by yeongo            #+#    #+#             */
-/*   Updated: 2022/11/01 10:05:34 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/11/03 09:42:35 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,13 @@ int	render_movement(t_baram *baram)
 {
 	static int	frame;
 
-	if (++frame > 1)
+	if (++frame > MAX_FRAME)
 		frame = 0;
-	if (baram->player.move_flag == 1 && frame == 1)
+	if (baram->player.move_flag == 1 && frame == MAX_FRAME)
 		baram->player.move_flag = 0;
 	if (baram->player.move_flag == 0)
 		render_game(baram, render_player);
 	else
-	{
 		render_game(baram, render_sprite);
-		baram->player.move_flag = 0;
-	}
 	return (0);
 }
