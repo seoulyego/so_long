@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:29:57 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/20 10:11:48 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/11/04 09:47:08 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	exit_with_perror(char *str)
 
 int	exit_success(t_baram *baram)
 {
+	display_movement_count(baram);
 	mlx_destroy_window(baram->mlx, baram->window);
 	printf("\n");
 	exit(0);
