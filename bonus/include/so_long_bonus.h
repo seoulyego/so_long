@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 10:41:37 by yeongo            #+#    #+#             */
-/*   Updated: 2022/11/03 09:44:11 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/11/23 09:48:52 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@
 # define MAX_FRAME 2
 # define RENDER_MARGINE 4
 
-typedef struct s_exit		t_exit;
 typedef struct s_img		t_img;
 typedef struct s_component	t_component;
 typedef struct s_map		t_map;
 typedef struct s_vector		t_vector;
 typedef struct s_player		t_player;
 typedef struct s_baram		t_baram;
+typedef struct s_query		t_query;
 
 struct s_img
 {
@@ -84,6 +84,12 @@ struct s_baram
 	t_player	player;
 };
 
+struct s_query
+{
+	int	collectible_count;
+	int	exit_count;
+};
+
 enum e_keys
 {
 	PRESS_W = 13,
@@ -134,6 +140,9 @@ void	ft_mlx_init(void **mlx_ptr);
 void	ft_new_window(void *mlx_ptr, void **window, int size_x, int size_y);
 void	ft_xpm_to_image(void *mlx_ptr, void **img_ptr, char *img_path);
 void	ft_string_put(t_baram *baram);
+
+/*        path_bonus.c                */
+int		check_valid_path(t_baram *baram);
 
 /*        parse_utils_bonus.c         */
 int		check_map_name(char *map_path);

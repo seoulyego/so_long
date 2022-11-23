@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 17:30:29 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/19 10:02:46 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/11/13 09:00:22 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,7 @@ int	parse_map(t_baram *baram)
 	get_map_board(baram);
 	if (!check_valid_map(&baram->player, &baram->map))
 		exit_with_error_message("No such essential component\n");
+	if (!check_valid_path(baram))
+		exit_with_error_message("No such exit path\n");
 	return (1);
 }

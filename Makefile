@@ -6,7 +6,7 @@
 #    By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/01 18:41:36 by yeongo            #+#    #+#              #
-#    Updated: 2022/11/01 10:57:07 by yeongo           ###   ########.fr        #
+#    Updated: 2022/11/23 09:43:31 by yeongo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRC_FILES		:=	$(addsuffix .c,			\
 					ft_mlx					\
 					parse_util				\
 					parse					\
+					path					\
 					movement				\
 					render_component		\
 					render					\
@@ -50,6 +51,7 @@ SRC_B_FILES		:=	$(addsuffix .c,			\
 					ft_mlx_bonus			\
 					parse_utils_bonus		\
 					parse_bonus				\
+					path_bonus				\
 					movement_bonus			\
 					render_component_bonus	\
 					render_bonus			\

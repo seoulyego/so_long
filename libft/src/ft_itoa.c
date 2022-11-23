@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 19:29:09 by yeongo            #+#    #+#             */
-/*   Updated: 2022/10/19 10:37:30 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/11/13 10:03:59 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ char	*ft_itoa(int n)
 
 	abs_n = ft_abs(n);
 	m_size = check_digits(abs_n);
-	if (n < 0)
-		m_size += 1;
-	result = malloc(sizeof(char) * (m_size + 1));
+	result = malloc(sizeof(char) * ((n < 0) + m_size + 1));
 	if (result == NULL)
 		return (NULL);
 	result[m_size] = '\0';
