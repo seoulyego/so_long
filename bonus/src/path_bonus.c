@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:56:53 by yeongo            #+#    #+#             */
-/*   Updated: 2022/11/23 09:48:29 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/11/23 23:04:25 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 
 static void	ft_free(char **ptr, int index_max)
 {
-	while (index_max - 1 > 0)
+	while (index_max >= 0)
 	{
-		free(ptr[index_max - 1]);
-		ptr[index_max - 1] = NULL;
+		free(ptr[index_max]);
+		ptr[index_max] = NULL;
 		index_max--;
 	}
 	free(*ptr);
@@ -32,7 +32,7 @@ static int	is_in_bound(int height, int width, int y, int x)
 		&& 0 <= x && x < width);
 }
 
-static t_query	path_finder(t_baram *baram, char **visited, int y, int x)
+static t_query	path_finder(t_baram *baram, char **visited_map, int y, int x)
 {
 	t_query		query;
 	t_query		temp;
@@ -42,17 +42,17 @@ static t_query	path_finder(t_baram *baram, char **visited, int y, int x)
 	query.collectible_count = 0;
 	query.exit_count = 0;
 	if (!is_in_bound(baram->map.height, baram->map.width, y, x) \
-		|| visited[y][x] || baram->map.board[y][x] == WALL)
+		|| visited_map[y][x] || baram->map.board[y][x] == WALL)
 		return (query);
 	query.collectible_count += baram->map.board[y][x] == COLLECT;
 	query.exit_count += baram->map.board[y][x] == EXIT;
-	visited[y][x] = 1;
+	visited_map[y][x] = 1;
 	direction = UP;
 	while (direction <= RIGHT)
 	{
 		offset = baram->player.preset[direction];
 		temp = path_finder
-			(baram, visited, y + offset.vector_y, x + offset.vector_x);
+			(baram, visited_map, y + offset.vector_y, x + offset.vector_x);
 		query.collectible_count += temp.collectible_count;
 		query.exit_count += temp.exit_count;
 		direction++;
@@ -63,23 +63,23 @@ static t_query	path_finder(t_baram *baram, char **visited, int y, int x)
 int	check_valid_path(t_baram *baram)
 {
 	t_query	query;
-	char	**visited;
+	char	**visited_map;
 	int		index_y;
 
-	visited = malloc(sizeof(char *) * baram->map.height);
-	if (visited == NULL)
-		exit_with_perror("Fail to allocate visited board");
+	visited_map = malloc(sizeof(char *) * baram->map.height);
+	if (visited_map == NULL)
+		exit_with_perror("Fail to allocate visited_map");
 	index_y = 0;
 	while (index_y < baram->map.height)
 	{
-		visited[index_y] = malloc(sizeof(char) * baram->map.width);
-		if (visited[index_y] == NULL)
-			exit_with_perror("Fail to allocate visited board line");
-		ft_memset(visited[index_y], 0, baram->map.width);
+		visited_map[index_y] = malloc(sizeof(char) * baram->map.width);
+		if (visited_map[index_y] == NULL)
+			exit_with_perror("Fail to allocate visited_map line");
+		ft_memset(visited_map[index_y], 0, baram->map.width);
 		index_y++;
 	}
-	query = path_finder(baram, visited, baram->player.y, baram->player.x);
-	ft_free(visited, index_y);
+	query = path_finder(baram, visited_map, baram->player.y, baram->player.x);
+	ft_free(visited_map, --index_y);
 	return (baram->map.component.collectible == query.collectible_count \
 		&& baram->map.component.exit == query.exit_count);
 }

@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 10:47:24 by yeongo            #+#    #+#             */
-/*   Updated: 2022/11/01 10:55:55 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/11/23 23:02:46 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,16 @@
 #include "../include/so_long.h"
 #include <stdlib.h>
 
+void	i_wanna_go_home(void)
+{
+	system("leaks so_long");
+}
+
 int	main(int ac, char **av)
 {
 	t_baram	baram;
 
+	i_wanna_go_home();
 	if (ac != 2)
 		exit_with_error_message("Invalid input\n");
 	init_baram(&baram, av[1]);
