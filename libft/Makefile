@@ -6,7 +6,7 @@
 #    By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 17:00:59 by yeongo            #+#    #+#              #
-#    Updated: 2022/10/05 21:09:20 by yeongo           ###   ########.fr        #
+#    Updated: 2022/12/05 22:15:20 by yeongo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,8 @@ SRC_FILES		:=		$(addsuffix .c,			\
 						get_next_line_utils		\
 						ft_printf				\
 						print_number			\
-						print_text)
+						print_text				\
+						ft_free)
 OBJ_FILES		:=		$(SRC_FILES:.c=.o)
 SRC				:=		$(addprefix $(SRC_DIR), $(SRC_FILES))
 OBJ				:=		$(addprefix $(OBJ_DIR), $(OBJ_FILES))
