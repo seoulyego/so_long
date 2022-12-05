@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 19:55:33 by yeongo            #+#    #+#             */
-/*   Updated: 2022/09/27 16:19:45 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/12/05 22:08:10 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,6 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 char	*get_next_line(int fd);
 int		ft_printf(const char *format, ...);
+void	ft_free(char **ptr, int index_max);
 
 #endif
