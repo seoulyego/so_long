@@ -6,7 +6,7 @@
 /*   By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:56:53 by yeongo            #+#    #+#             */
-/*   Updated: 2022/11/23 23:02:36 by yeongo           ###   ########.fr       */
+/*   Updated: 2022/12/05 21:45:33 by yeongo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ static void	ft_free(char **ptr, int index_max)
 		ptr[index_max] = NULL;
 		index_max--;
 	}
-	free(*ptr);
-	*ptr = NULL;
+	free(ptr);
+	ptr = NULL;
 }
 
 static int	is_in_bound(int height, int width, int y, int x)
