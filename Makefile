@@ -6,7 +6,7 @@
 #    By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/01 18:41:36 by yeongo            #+#    #+#              #
-#    Updated: 2022/11/23 09:43:31 by yeongo           ###   ########.fr        #
+#    Updated: 2022/12/06 21:50:39 by yeongo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ RM				:=	rm -rf
 
 LIBFT			:=	./libft/libft.a
 LIBFT_DIR		:=	./libft/
+LIBFT_HEADER	:=	./libft/include/
 LIBMLX			:=	./mlx/libmlx.a
 LIBMLX_DIR		:=	./mlx/
 LDFAGS			:=	-L$(LIBFT_DIR) -lft -L$(LIBMLX_DIR) -lmlx
@@ -87,7 +88,7 @@ $(OBJ_FOLDER)	:
 	fi
 
 $(OBJ_FOLDER)%.o	:	$(SRC_FOLDER)%.c
-	@$(CC) $(CFLAGS) -I$(LIBFT_DIR) -I$(LIBMLX_DIR) -I$(INCLUDE) -c -o $@ $<
+	@$(CC) $(CFLAGS) -I$(LIBFT_HEADER) -I$(LIBMLX_DIR) -I$(INCLUDE) -c -o $@ $<
 
 $(LIBFT)	:
 	@make -s -C $(LIBFT_DIR) all
