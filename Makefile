@@ -6,7 +6,7 @@
 #    By: yeongo <yeongo@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/01 18:41:36 by yeongo            #+#    #+#              #
-#    Updated: 2022/12/06 21:50:39 by yeongo           ###   ########.fr        #
+#    Updated: 2022/12/07 13:43:37 by yeongo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBFT_DIR		:=	./libft/
 LIBFT_HEADER	:=	./libft/include/
 LIBMLX			:=	./mlx/libmlx.a
 LIBMLX_DIR		:=	./mlx/
-LDFAGS			:=	-L$(LIBFT_DIR) -lft -L$(LIBMLX_DIR) -lmlx
+LDFLAGS			:=	-L$(LIBFT_DIR) -lft -L$(LIBMLX_DIR) -lmlx
 
 HEADER			:=	./include/
 SRC_DIR			:=	./src/
@@ -79,7 +79,7 @@ endif
 all		:	$(OBJ_FOLDER) $(NAME)
 
 $(NAME)	:	$(OBJS) $(LIBFT) $(LIBMLX)
-	@$(CC) $(CFLAGS) $(LDFAGS) $(FRAMEWORK) -o $@ $^
+	@$(CC) $(CFLAGS) $(LDFLAGS) $(FRAMEWORK) -o $@ $^
 	@echo "\033[01;32m       SUCCESS!      \033[0m"
 
 $(OBJ_FOLDER)	:
